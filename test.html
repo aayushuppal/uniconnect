@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Comment System</title>
+  <link rel="stylesheet" type="text/css" href="style1.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="script1.js"></script>
+<head>
+<body>
+  
+  <div class="post" align="center">
+    <!-- post will be placed here from db -->
+  </div>
+  
+  <div class="comment-block" align="center">
+    <!-- comment will be apped here from db-->
+  </div>
+    
+    <div id="maingroup" align="center">
+    
+    <div align="center" id="QuesBtn1" class="QuesBtn">
+    <img src="img/ques.png" height="42" width="42" style="position: relative; left: -2px;">
+    <span class="whiteBold verticalMid">
+       Submit Question
+    </span>
+    </div>
+    
+    <div id="QuesPop1" align="center" class="QuesPop" style="display:none;">
+      <form>
+      <textarea name="comment" id="qval" cols="30" rows="10" placeholder="Type your question here...." required></textarea><br/><br/>
+      <input type="submit" id="subBtn" height="20" width="40" style="background: #8C3535; border: none; height: 32px; width: 100px; border-radius: 25px;" class="whiteBold" value="Submit">
+      </form>
+    </div>
+    </div>
+
+</body>
+</html>
