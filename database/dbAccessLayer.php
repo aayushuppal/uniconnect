@@ -17,10 +17,10 @@ function insert_user($username, $pass, $first, $last, $org, $type)
 {
 	$doc = array("username" => $username, "password" => $pass,
 					"first_name" => $first, "last_name" => $last,
-					"user_association" => array("org_id" => $org, 
-												"user_type" => $type));
+					"user_association" => array(array("org_id" => $org, 
+												"user_type" => $type)));
 	global $user;
 	insert_doc($user, $doc);	
 }
-insert_user("admin1", "admin1", "face", "book", "mark", "student");
+insert_user("admn3", "admn3", "fce", "bok3", "mak3", "student6");
 ?>
