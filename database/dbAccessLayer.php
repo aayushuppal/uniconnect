@@ -40,7 +40,7 @@ function insertOrganization($org_name, $org_type, $user_count) {
 	insert_doc($org,$doc);
 }
 
-function addUserOrganization($user_id,$org_id, $user_type) {
+function addUserOrganization($user_id, $org_id, $user_type) {
 	global $user,$org;
 	$doc = array("user_association" => array(array("org_id" => $org_id, "user_type" => $user_type)));
 	$user->update(array("_id" => $user_id),array('$push' => $doc));
@@ -48,5 +48,30 @@ function addUserOrganization($user_id,$org_id, $user_type) {
 	$count = $res["user_count"];
 	$org->update(array("_id" => $org_id),array('$set' => array("user_count" => $count + 1)));
 }
-insert_user("admn3", "admn3", "fce", "bok3", "mak3", "student6");
+
+function insertAnswer($title, $desc, $by_user, $quesid) {
+	global $ans,$ques;
+	$id = getNextSequence("ansid");
+	$doc = array("_id" => $id, "title" => $title, 
+			"desc" => $desc, "by_user" => $by_user, "date" => new MongoDate(),
+	"question" => $quesid);
+	$ques->update(array("_id" => $quesid),array('$push' =>  
+			array("answer" => $id)));
+	$ques->update(array("_id" => $quesid), array('$set' => array("status" => "A")));
+	$ans->insert($doc);
+}
+
+function insertQuestion($title, $desc, $category, $scope, $status, $tags, $by_user) {
+	global $ques;
+	$doc = array("_id" => getNextSequence("quesid"), "title" => $title, "desc" => $desc,
+			"category" => $category, "scope" => $scope, "status" => $status, "tags" => $tags,
+			"by_user" => $by_user, "date" => new MongoDate());
+	$ques->insert($doc);
+}
+
+// insert_user("admn3", "admn3", "fce", "bok3", "mak3", "student6");
+// insertOrganization("Princeton","University",0);
+// addUserOrganization(new MongoId("545e2494e4cde50b1d8b4567"), 11, "student1");
+// insertQuestion("How good is DB course?","How is the professor?","HOW","private","U",array("DB","database"),1);
+// insertAnswer("DB course","Kennedy is good", 1, 3);
 ?>
