@@ -22,5 +22,20 @@ function insert_user($username, $pass, $first, $last, $org, $type)
 	global $user;
 	insert_doc($user, $doc);	
 }
+
+function insertOrganization($id,$org_name, $org_type, $user_count) {
+	global $org;
+	$doc = array(
+			"_id" => $id, "org_name" => $org_name, "org_type" => $org_type,
+			"user_count" => $user_count
+	);
+	insert_doc($org,$doc);
+}
+
+function addUserOrganization($user_id,$org_id, $user_type) {
+	global $user;
+	$doc = array("user_association" => array(array("org_id" => $org_id, "user_type" => $user_type)));
+	$user->update(array("_id" => $user_id),array('$push' => $doc));
+}
 insert_user("admn3", "admn3", "fce", "bok3", "mak3", "student6");
 ?>
