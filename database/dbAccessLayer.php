@@ -13,9 +13,16 @@ function insert_doc($col, $doc)
 	$col->insert($doc);
 }
 
+function getNextSequence($name){
+	global $db;
+	$db->counters->update(array("_id" => $name),array('$inc' => array('seq' => 1)));
+	$ret = $db->counters->findOne(array("_id" => $name));
+	return $ret["seq"];
+}
+
 function insert_user($username, $pass, $first, $last, $org, $type)
 {
-	$doc = array("username" => $username, "password" => $pass,
+	$doc = array("_id" => getNextSequence("userid"), "username" => $username, "password" => $pass,
 					"first_name" => $first, "last_name" => $last,
 					"user_association" => array(array("org_id" => $org, 
 												"user_type" => $type)));
@@ -23,15 +30,11 @@ function insert_user($username, $pass, $first, $last, $org, $type)
 	insert_doc($user, $doc);	
 }
 
+
 function insertOrganization($org_name, $org_type, $user_count) {
 	global $org;
-	$res = $org->find(array(),array("_id"=>1))->sort(array("_id" => -1))->limit(1);
-	foreach($res as $r) {
-		$maxid = $r["_id"];
-	}
-	$id = $maxid + 1;
 	$doc = array(
-		"_id" => $id, "org_name" => $org_name, "org_type" => $org_type,
+		"_id" => getNextSequence("orgid"), "org_name" => $org_name, "org_type" => $org_type,
 			"user_count" => $user_count
 	);
 	insert_doc($org,$doc);
