@@ -55,10 +55,14 @@ function insertAnswer($title, $desc, $by_user, $quesid) {
 	$doc = array("_id" => $id, "title" => $title, 
 			"desc" => $desc, "by_user" => $by_user, "date" => new MongoDate(),
 	"question" => $quesid);
-	$ques->update(array("_id" => $quesid),array('$push' =>  
-			array("answer" => $id)));
-	$ques->update(array("_id" => $quesid), array('$set' => array("status" => "A")));
-	$ans->insert($doc);
+	$ques->update(array("_id" => $quesid), array('$addToSet' => array ("answer" =>
+						array("_id" => $id, "title" => $title, 
+								"desc" => $desc, "by_user" => $by_user,
+								"date" => new MongoDate()))));
+// 	$ques->update(array("_id" => $quesid),array('$push' =>  
+// 			array("answer" => $id)));
+// 	$ques->update(array("_id" => $quesid), array('$set' => array("status" => "A")));
+// 	$ans->insert($doc);
 }
 
 function insertQuestion($title, $desc, $category, $scope, $status, $tags, $by_user) {
@@ -69,6 +73,15 @@ function insertQuestion($title, $desc, $category, $scope, $status, $tags, $by_us
 	$ques->insert($doc);
 }
 
+function fetchAllQuesAndAnswers() {
+	global $ques;
+	$quesAndAns = $ques->find().sort(array("date" => 1));
+	$totalCount = $quesAndAns->count();
+	echo $totalCount;
+}
+
+insertAnswer("PHP This is first answer from PHP", "PHP Test first Description from php", 
+					"1", 1);	
 // insert_user("admn3", "admn3", "fce", "bok3", "mak3", "student6");
 // insertOrganization("Princeton","University",0);
 // addUserOrganization(new MongoId("545e2494e4cde50b1d8b4567"), 11, "student1");
