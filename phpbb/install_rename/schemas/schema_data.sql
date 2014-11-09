@@ -56,11 +56,11 @@ INSERT INTO phpbb_config (config_name, config_value) VALUES ('avatar_min_height'
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('avatar_min_width', '20');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('avatar_path', 'images/avatars/upload');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('avatar_salt', 'phpbb_avatar');
-INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_contact', 'contact@uniconnect.tld');
+INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_contact', 'contact@UniConnect.tld');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_contact_name', '');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_disable', '0');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_disable_msg', '');
-INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_email', 'address@uniconnect.tld');
+INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_email', 'address@UniConnect.tld');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_email_form', '0');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_email_sig', '{L_CONFIG_BOARD_EMAIL_SIG}');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('board_hide_emails', '1');
@@ -480,7 +480,7 @@ INSERT INTO phpbb_forums (forum_name, forum_desc, left_id, right_id, parent_id, 
 INSERT INTO phpbb_users (user_type, group_id, username, username_clean, user_regdate, user_password, user_email, user_lang, user_style, user_rank, user_colour, user_posts, user_permissions, user_ip, user_birthday, user_lastpage, user_last_confirm_key, user_post_sortby_type, user_post_sortby_dir, user_topic_sortby_type, user_topic_sortby_dir, user_avatar, user_sig, user_sig_bbcode_uid, user_jabber, user_actkey, user_newpasswd, user_allow_massemail) VALUES (2, 1, 'Anonymous', 'anonymous', 0, '', '', 'en', 1, 0, '', 0, '', '', '', '', '', 't', 'a', 't', 'd', '', '', '', '', '', '', 0);
 
 # -- username: Admin    password: admin (change this or remove it once everything is working!)
-INSERT INTO phpbb_users (user_type, group_id, username, username_clean, user_regdate, user_password, user_email, user_lang, user_style, user_rank, user_colour, user_posts, user_permissions, user_ip, user_birthday, user_lastpage, user_last_confirm_key, user_post_sortby_type, user_post_sortby_dir, user_topic_sortby_type, user_topic_sortby_dir, user_avatar, user_sig, user_sig_bbcode_uid, user_jabber, user_actkey, user_newpasswd) VALUES (3, 5, 'Admin', 'admin', 0, '21232f297a57a5a743894a0e4a801fc3', 'admin@uniconnect.com', 'en', 1, 1, 'AA0000', 1, '', '', '', '', '', 't', 'a', 't', 'd', '', '', '', '', '', '');
+INSERT INTO phpbb_users (user_type, group_id, username, username_clean, user_regdate, user_password, user_email, user_lang, user_style, user_rank, user_colour, user_posts, user_permissions, user_ip, user_birthday, user_lastpage, user_last_confirm_key, user_post_sortby_type, user_post_sortby_dir, user_topic_sortby_type, user_topic_sortby_dir, user_avatar, user_sig, user_sig_bbcode_uid, user_jabber, user_actkey, user_newpasswd) VALUES (3, 5, 'Admin', 'admin', 0, '21232f297a57a5a743894a0e4a801fc3', 'admin@UniConnect.com', 'en', 1, 1, 'AA0000', 1, '', '', '', '', '', 't', 'a', 't', 'd', '', '', '', '', '', '');
 
 # -- Groups
 INSERT INTO phpbb_groups (group_name, group_type, group_founder_manage, group_colour, group_legend, group_avatar, group_desc, group_desc_uid, group_max_recipients) VALUES ('GUESTS', 3, 0, '', 0, '', '', '', 5);

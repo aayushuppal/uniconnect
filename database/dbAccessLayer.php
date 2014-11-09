@@ -96,7 +96,7 @@ function fetchAllQuesAndAnswers() {
 	}
 }
 
-validateUserNameAndPassword("admin2", "admin2");
+//validateUserNameAndPassword("admin2", "admin2");
 function validateUserNameAndPassword($userName, $password) 
 {
 	global $user;
@@ -107,7 +107,13 @@ function validateUserNameAndPassword($userName, $password)
 	}
 	return true;
 }
- fetchAllQuesAndAnswers();
+echo "stringdad";
+ if (isset($_POST['desc'])) {
+ 		echo "asdasdasdasdasdas";
+        echo insertAnswer("title",$_POST['desc'],"1","2");
+    }
+
+// fetchAllQuesAndAnswers();
 //  insertAnswer("PHP This is first answer from PHP", "PHP Test first Description from php", 
 // 					"1", 1);	
 // insert_user("admn3", "admn3", "fce", "bok3", "mak3", "student6");

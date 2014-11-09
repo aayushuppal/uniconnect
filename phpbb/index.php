@@ -1,4 +1,5 @@
 <?php
+phpinfo();
 /**
 *
 * This file is part of the phpBB Forum Software package.

@@ -2254,7 +2254,7 @@ function redirect($url, $return = false, $disable_cd_check = false)
 	}
 	else if (!empty($url_parts['scheme']) && !empty($url_parts['host']))
 	{
-		// Attention: only able to redirect within the same domain if $disable_cd_check is false (uniconnect.com -> www.uniconnect.com will not work)
+		// Attention: only able to redirect within the same domain if $disable_cd_check is false (UniConnect.com -> www.UniConnect.com will not work)
 		if (!$disable_cd_check && $url_parts['host'] !== $user->host)
 		{
 			$url = generate_board_url();

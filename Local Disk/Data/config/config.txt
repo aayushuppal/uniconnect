@@ -1,0 +1,7 @@
+#This is an example config file for MongoDB
+#basic
+dbpath = c:\Data\db
+port = 27017
+logpath = c:\Data\log\mongo.txt
+
+#mongod -f "C:\Program Files\MongoDB 2.6 Standard\mongoConfig.txt" --install --serviceName mdb27017 --serviceDisplayName "MongoDB Server #Instance 27017" --serviceDescription "MongoDB #Server Instance running on 27017"
