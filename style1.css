@@ -1,3 +1,8 @@
+@import url('http://fonts.googleapis.com/css?family=Raleway');
+* {
+    font-family: Raleway;
+  }
+
 .centerAlign{
 align: center;
 }
@@ -10,7 +15,6 @@ body {
 }
 
 .whiteBold{
-  font-family: monospace;
   color: #FFFFFF;
   font-size: 12pt;
 }
@@ -26,7 +30,7 @@ position: relative;
 margin: 0 auto;
 width: 192px;
 text-align: center;
-background: #8C3535;
+background: #520B0B;
 cursor: pointer;
 display: block;
     border-radius: 25px;
@@ -49,7 +53,6 @@ textarea
 {	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
 	box-sizing:border-box;
-	font-family:'Open Sans', sans-serif, Arial, Helvetica, sans-serif;
 	font-size:12pt;
 	-webkit-box-shadow:inset 1px 1px 2px 0 rgba(0,0,0,.3);
 	box-shadow:inset 1px 1px 2px 0 rgba(0,0,0,.3);
@@ -59,12 +62,13 @@ textarea
 
 textarea {
 	padding:15px; margin:0 10px 10px 0;
-	font-size:12px;
+	font-size:18px;
 }
 
 
 textarea {
 width:100%;	
+height: 30%;
 }
 
 #maingroup{
@@ -76,3 +80,62 @@ display: block;
 
 }
 
+#threadTitle{
+background: #520B0B;
+width: 100%;
+height: 20%;
+position: relative;
+top: 10%;}
+
+.qtitleText{
+font-size: 18px;
+color: white;
+position: relative;
+display: table-cell;
+    vertical-align:middle;
+    text-align: center; 
+
+}
+#title-content{
+  position: relative;
+padding-left: 5px;
+padding-right: 5px;
+}
+.ght {
+margin-bottom: 30px;
+font-size: 20px;
+color: rgba(210, 204, 195, 0.86);
+
+line-height: 1.6;
+padding: 10px 70px;
+}
+
+#Qimg{
+width: 10%;
+height: 80%;
+float: left;
+margin: 1% 0 0% 1%;
+}
+
+.Qimage{
+   content:url(img/Qwhite.png);
+}
+
+.content-a {
+    width:100%;
+    min-height:100%;
+  display:table;
+}
+
+.content-b {
+  display:table-cell;
+    position:relative;
+  vertical-align:middle;
+  text-align:center;
+  color: white;
+}
+
+.not-fullscreen{
+    height:100%;
+    overflow:hidden;
+}
