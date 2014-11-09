@@ -1,16 +1,20 @@
 <?php
-if (isset ( $_POST['userName'], $_POST ['password'] )) {
-// 	echo "Mimanshu";
-	 if(validateUserNameAndPassword($_POST['userName'], $_POST['password']))
-	 {
-	 	$_SESSION('username') = $_POST['userName'];
-	 	$a = session_id();	 	
-	 }
+session_start ();
+include ('/dbAccessLayer.php');
+if (isset ( $_POST ['userName'], $_POST ['password'] )) {
+	// echo "Mimanshu";
+	$val = validateUserNameAndPassword ( $_POST ['userName'], $_POST ['password'] );
+	if ($val == true) {
+		$_SESSION ['username'] = $_POST ['userName'];
+		// header ('Location: http://localhost/textpoc/hackUb/newfile.php');
+		// exit();
+		return true;
+		// http_redirect('newfile.php');
+		// http_redirect("newfile.php", array("name" => "value"), true, HTTP_REDIRECT_PERM);
+	} else
+		return false;
 }
-function validateUserNameAndPassword($userName, $password) {
-// 	echo "Shisodia";
-	return true;
-}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -209,16 +213,23 @@ nav li #login-content {
 					$.ajax({
 						url: 'index.php',
 						type: 'post',
-						data: {'userName':$('username').val(),'password':$('username').val()},
+						data: {'userName':$('#username').val(),'password':$('#password').val()},
 						success: function(data, status)
 						{
-							alert("Login Successfull");
-							var a = <?php ?>
-							alert(
-						},
+							alert(status);
+							if(status)
+							{
+								alert("here");
+								var redirect = 'newfile.php';
+								var url = "newfile.php";
+								$(location).attr('href',url);
+																
+// 								$.redirectPost(redirect);						
+							}
+						},						
 						error: function(xhr, desc, err)
 						{
-							alert(xhr+desc+err);
+							
 						}
 					});//end of Ajax
 			    });
