@@ -1,5 +1,4 @@
 <?php
-
 	$conn = new MongoClient ( "ec2-54-68-28-28.us-west-2.compute.amazonaws.com:12345" );
 	$db = $conn->kuchbhi;
 	$user = $db->user;
@@ -75,13 +74,32 @@ function insertQuestion($title, $desc, $category, $scope, $status, $tags, $by_us
 
 function fetchAllQuesAndAnswers() {
 	global $ques;
-	$quesAndAns = $ques->find().sort(array("date" => 1));
+	//All the questions and related answers;
+	$quesAndAns = $ques->find();
+	//Total no of question
 	$totalCount = $quesAndAns->count();
-	echo $totalCount;
+	foreach($quesAndAns as $q)
+	{
+		$ques_id = $q["_id"];
+		$ques_title = $q["title"];
+		$ques_desc = $q["desc"];
+		$by_user = $q["by_user"];
+		$date = $q["date"];
+		$ans = $q["answer"];
+		foreach($ans as $a)
+		{
+			$ans_id = $a["_id"];
+			$ans_title = $a["title"];
+			$ans_desc = $a["desc"];
+			$ans_by_user = $a["by_user"];
+		}
+	}
 }
 
-insertAnswer("PHP This is first answer from PHP", "PHP Test first Description from php", 
-					"1", 1);	
+
+ fetchAllQuesAndAnswers();
+//  insertAnswer("PHP This is first answer from PHP", "PHP Test first Description from php", 
+// 					"1", 1);	
 // insert_user("admn3", "admn3", "fce", "bok3", "mak3", "student6");
 // insertOrganization("Princeton","University",0);
 // addUserOrganization(new MongoId("545e2494e4cde50b1d8b4567"), 11, "student1");
