@@ -96,7 +96,17 @@ function fetchAllQuesAndAnswers() {
 	}
 }
 
-
+validateUserNameAndPassword("admin2", "admin2");
+function validateUserNameAndPassword($userName, $password) 
+{
+	global $user;
+	$result = $ser->find(array("username" => $userName, "password" => $password));
+	if (is_null($result))
+	{
+		return false;
+	}
+	return true;
+}
  fetchAllQuesAndAnswers();
 //  insertAnswer("PHP This is first answer from PHP", "PHP Test first Description from php", 
 // 					"1", 1);	
