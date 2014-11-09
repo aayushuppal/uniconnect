@@ -1,5 +1,16 @@
-<?php 
-	
+<?php
+if (isset ( $_POST['userName'], $_POST ['password'] )) {
+// 	echo "Mimanshu";
+	 if(validateUserNameAndPassword($_POST['userName'], $_POST['password']))
+	 {
+	 	$_SESSION('username') = $_POST['userName'];
+	 	$a = session_id();	 	
+	 }
+}
+function validateUserNameAndPassword($userName, $password) {
+// 	echo "Shisodia";
+	return true;
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -49,9 +60,8 @@ nav #login-trigger:hover, nav #login .active {
 }
 
 .btn {
-	
- 	-webkit-border-radius: 5;
- 	-moz-border-radius: 5;
+	-webkit-border-radius: 5;
+	-moz-border-radius: 5;
 	font-weight: bold;
 	border-radius: 5px;
 	font-family: Arial;
@@ -155,6 +165,7 @@ nav li #login-content {
 	right: 2px;
 }
 </style>
+
 <title>Connecting Peers</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
@@ -193,6 +204,24 @@ nav li #login-content {
 			    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
 			      else $(this).find('span').html('&#x25BC;')
 			    })
+
+			    $('#loginForm').submit(function(e){
+					$.ajax({
+						url: 'index.php',
+						type: 'post',
+						data: {'userName':$('username').val(),'password':$('username').val()},
+						success: function(data, status)
+						{
+							alert("Login Successfull");
+							var a = <?php ?>
+							alert(
+						},
+						error: function(xhr, desc, err)
+						{
+							alert(xhr+desc+err);
+						}
+					});//end of Ajax
+			    });
 			});
 		</script>
 
@@ -208,7 +237,7 @@ nav li #login-content {
 				<li id="login"><a href="#" class="btn icon fa-angle-down"
 					id="login-trigger"> Sign In </a>
 					<div id="login-content" style="height: 170px">
-						<form>
+						<form id="loginForm">
 							<fieldset id="inputs">
 								<input id="username" type="text" name="UserName"
 									placeholder="Your UserName" required style="color: black;"> <input
